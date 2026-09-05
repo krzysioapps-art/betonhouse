@@ -1,0 +1,257 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(17, 17, 15, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 500ms var(--ease),
+    visibility 500ms;
+}
+
+.overlayOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: min(620px, 100vw);
+  height: 100svh;
+  overflow-y: auto;
+  background: var(--white);
+  color: var(--black);
+  transform: translateX(100%);
+  transition: transform 700ms var(--ease);
+  overscroll-behavior: contain;
+}
+
+.panelOpen {
+  transform: translateX(0);
+}
+
+.inner {
+  min-height: 100%;
+  padding: 32px clamp(24px, 4vw, 54px) 46px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.close {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.close span {
+  position: absolute;
+  left: 8px;
+  top: 18px;
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+}
+
+.close span:first-child {
+  transform: rotate(45deg);
+}
+
+.close span:last-child {
+  transform: rotate(-45deg);
+}
+
+.content {
+  width: min(100%, 500px);
+  margin-top: clamp(72px, 9vw, 110px);
+}
+
+.intro {
+  max-width: 440px;
+  margin: 0 0 48px;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -0.018em;
+}
+
+.form {
+  display: grid;
+}
+
+.field {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.field span {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.3;
+  transition: color 300ms var(--ease);
+}
+
+.field:hover span,
+.field:focus-within span {
+  color: var(--black);
+}
+
+.field input,
+.field textarea {
+  display: block;
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  outline: 0;
+  background: var(--white);
+  color: var(--black);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.45;
+  caret-color: var(--black);
+  transition:
+    border-color 300ms var(--ease),
+    background-color 300ms var(--ease);
+}
+
+.field input:hover,
+.field textarea:hover {
+  border-color: rgba(17, 17, 15, 0.35);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--black);
+  background: var(--white);
+}
+
+.field textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 46px;
+  margin-top: 6px;
+  padding: 0 24px;
+  border: 1px solid var(--black);
+  border-radius: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 400ms var(--ease),
+    color 400ms var(--ease);
+}
+
+.submit:hover {
+  background: transparent;
+  color: var(--black);
+}
+
+.or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: 48px 34px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1;
+}
+
+.contactDetails {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+
+.contactDetails a {
+  position: relative;
+  width: fit-content;
+}
+
+.contactDetails a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: right center;
+  transition: transform 500ms var(--ease);
+}
+
+.contactDetails a:hover::after {
+  transform: scaleX(0);
+}
+
+.contactDetails p {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  .inner {
+    padding: 24px 20px 34px;
+  }
+
+  .content {
+    margin-top: 58px;
+  }
+
+  .intro {
+    margin-bottom: 38px;
+    font-size: 17px;
+  }
+
+  .or {
+    margin-block: 42px 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .panel,
+  .submit,
+  .field span,
+  .contactDetails a::after {
+    transition: none;
+  }
+}
