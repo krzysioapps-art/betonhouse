@@ -22,32 +22,7 @@ const projects = [
     image: "/images/projects/glass-house.webp",
   },
 ];
-function useImageZoom() {
-  useEffect(() => {
-    const images = Array.from(
-      document.querySelectorAll<HTMLElement>(`.${styles.imageZoom}`)
-    );
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          entry.target.classList.add(styles.imageZoomReady);
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -5% 0px",
-      }
-    );
-
-    images.forEach((image) => observer.observe(image));
-
-    return () => observer.disconnect();
-  }, []);
-}
 function useReveal() {
   useEffect(() => {
     const items = Array.from(
@@ -88,13 +63,12 @@ function useHeroEntrance() {
 
 export default function HomePage() {
   useReveal();
-  useImageZoom();
 
   const heroReady = useHeroEntrance();
   const { openContact } = useContact();
 
   return (
-    <main className={`${styles.page} debug`}>
+    <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroImage}>
@@ -181,7 +155,7 @@ export default function HomePage() {
       {/* STICKY STORY — full height image stays, copy travels */}
       <section id="beton-house" className={styles.stickyStory}>
         <div className={styles.stickyGrid}>
-          <div className={`${styles.stickyVisual} ${styles.imageZoom}`}>
+          <div className={styles.stickyVisual}>
             <img
               src="/images/beton-house/exterior.webp"
               alt="Beton House — nasz dom w Katowicach"
@@ -260,13 +234,12 @@ export default function HomePage() {
       </section>
 
       {/* IMAGE INTERRUPTION */}
-      <section className={`${styles.fullBleed} ${styles.imageZoom}`}>
+      <section className={styles.fullBleed}>
         <img
           src="/images/beton-house/life.webp"
           alt="Życie w Beton House"
         />
       </section>
-
 
       {/* BUILD */}
       <section
@@ -279,7 +252,6 @@ export default function HomePage() {
               <PolishText>Najpierw był projekt.</PolishText>
             </h2>
           </div>
-
           <div className={styles.buildHeadCopy}>
             <p className={styles.lead}>
               <PolishText>Później przyszła rzeczywistość.</PolishText>
@@ -288,27 +260,19 @@ export default function HomePage() {
         </div>
 
         <div className={styles.buildGallery}>
-          <div
-            className={`${styles.buildImage} ${styles.buildImageLarge} ${styles.imageZoom}`}
-          >
+          <div className={`${styles.buildImage} ${styles.buildImageLarge}`}>
             <img
               src="/images/beton-house/build-01.webp"
               alt="Beton House podczas budowy"
             />
           </div>
-
-          <div
-            className={`${styles.buildImage} ${styles.buildImageSmall} ${styles.imageZoom}`}
-          >
+          <div className={`${styles.buildImage} ${styles.buildImageSmall}`}>
             <img
               src="/images/beton-house/build-02.webp"
               alt="Beton House — etap budowy"
             />
           </div>
-
-          <div
-            className={`${styles.buildImage} ${styles.buildImageSmall} ${styles.imageZoom}`}
-          >
+          <div className={`${styles.buildImage} ${styles.buildImageSmall}`}>
             <img
               src="/images/beton-house/build-03.webp"
               alt="Beton House — realizacja"
@@ -328,7 +292,6 @@ export default function HomePage() {
                 architekta i inwestora.
               </PolishText>
             </p>
-
             <p className={styles.body}>
               <PolishText>
                 Z jednej strony odpowiadał za projekt, funkcję i rozwiązania
@@ -336,7 +299,6 @@ export default function HomePage() {
                 pojawiają się pomiędzy rysunkiem a gotowym domem.
               </PolishText>
             </p>
-
             <p className={styles.body}>
               <PolishText>
                 Dzięki temu zobaczyliśmy cały proces z dwóch perspektyw.
@@ -347,7 +309,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
 
       {/* SECOND STICKY — detail image */}
       <section className={styles.experienceSticky}>
@@ -380,7 +341,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className={`${styles.experienceVisual} ${styles.imageZoom}`}>
+          <div className={styles.experienceVisual}>
             <img
               src="/images/beton-house/detail.webp"
               alt="Detal wnętrza Beton House"
@@ -391,7 +352,7 @@ export default function HomePage() {
 
       {/* WATER */}
       <section className={`${styles.lightSplit} ${styles.split}`}>
-        <div className={`${styles.splitImage} ${styles.imageZoom}`}>
+        <div className={styles.splitImage}>
           <img
             src="/images/beton-house/water.webp"
             alt="Refleksor wodny przed Beton House"
@@ -424,38 +385,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TVN VIDEO */}
-      <section className={styles.videoStory}>
-        <div className={styles.videoStoryMedia}>
-          <iframe
-            className={styles.videoStoryIframe}
-            src="https://www.youtube.com/embed/JafVo-yxP2I?autoplay=1&mute=1&controls=0&loop=1&playlist=JafVo-yxP2I&cc_load_policy=0&disablekb=1&fs=0&rel=0&playsinline=1"
-            title="Beton House"
-            frameBorder="0"
-            allow="autoplay; encrypted-media"
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
-        </div>
-
-        <div className={styles.videoStoryText}>
+      {/* TVN */}
+      <section className={`${styles.darkSplit} ${styles.split}`}>
+        <div className={styles.splitText}>
           <h2 className={styles.heading}>
             <PolishText>Pokazaliśmy nasz dom.</PolishText>
           </h2>
-
           <p className={styles.lead}>
             <PolishText>
               Omenaa Mensah odwiedziła nas w Beton House w programie
               „Wyjątkowe domy”.
             </PolishText>
           </p>
-
           <p className={styles.body}>
             <PolishText>
               Mogliśmy opowiedzieć o architekturze, ale też o tym, jak żyjemy
               w domu, który sami zaprojektowaliśmy.
             </PolishText>
           </p>
-
           <a
             href="https://player.pl/playerplus/programy-online/wyjatkowe-domy-odcinki,27402/odcinek-2,S01E02,184839"
             target="_blank"
@@ -464,6 +411,13 @@ export default function HomePage() {
           >
             <PolishText>Zobacz materiał TVN</PolishText>
           </a>
+        </div>
+
+        <div className={`${styles.splitImage} ${styles.tvnImage}`}>
+          <img
+            src="/images/beton-house/tvn-omenaa.webp"
+            alt="Omenaa Mensah z Hanią i Sewerynem Nogalskimi w Beton House"
+          />
         </div>
       </section>
 

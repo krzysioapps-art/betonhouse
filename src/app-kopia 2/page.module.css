@@ -257,7 +257,8 @@
 
 .fullBleed {
   width: 100%;
-  height: calc(100svh - var(--header-height));
+  height: min(92vh, 980px);
+  min-height: 620px;
   overflow: hidden;
 }
 
@@ -604,14 +605,11 @@
 }
 
 .projectImage {
-  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
 .projectImage img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
   transition: transform 900ms var(--ease);
 }
 
@@ -807,8 +805,6 @@
 
 /* MOBILE */
 
-/* MOBILE */
-
 @media (max-width: 700px) {
   .heading {
     font-size: clamp(40px, 10vw, 58px);
@@ -859,29 +855,11 @@
   }
 
 
-  /* IMAGES — MOBILE
-     Wszystkie zdjęcia poza hero:
-     poziomy format 3:2
-  */
-
   .stickyVisual,
-  .experienceVisual,
-  .splitImage,
-  .fullBleed {
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 3 / 2;
+  .experienceVisual {
+    height: 68svh;
+    min-height: 480px;
   }
-
-  .stickyVisual img,
-  .experienceVisual img,
-  .splitImage img,
-  .fullBleed img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
 
   .stickyContent,
   .experienceContent {
@@ -901,12 +879,15 @@
     gap: 92px;
   }
 
+
   .storyStep h3 {
     font-size: 32px;
   }
 
-
-  /* BUILD */
+  .fullBleed {
+    height: 68svh;
+    min-height: 430px;
+  }
 
   .build {
     padding-block: 92px;
@@ -950,21 +931,22 @@
     object-fit: contain;
   }
 
-  .buildText {
-    grid-template-columns: 1fr;
-    gap: 34px;
-    margin-top: 76px;
-  }
-
-
-  /* SPLIT */
-
   .lightSplit .splitImage {
     order: 2;
   }
 
   .lightSplit .splitText {
     order: 1;
+  }
+
+  .buildText {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    margin-top: 76px;
+  }
+
+  .splitImage {
+    min-height: 65svh;
   }
 
   .lightSplit .splitText,
@@ -977,9 +959,6 @@
   .splitText {
     padding: 82px var(--gutter) 92px;
   }
-
-
-  /* LOWER SECTIONS */
 
   .statement,
   .philosophy,
@@ -1011,9 +990,6 @@
     margin-top: 0;
   }
 
-
-  /* CONTACT */
-
   .contact {
     min-height: 68svh;
   }
@@ -1041,132 +1017,4 @@
     transform: none;
     transition: none;
   }
-}
-
-
-
-
-/* =========================================================
-   VIDEO STORY
-   ========================================================= */
-
-.videoStory {
-  position: relative;
-  height: calc(150svh - (1.5 * var(--header-height)));
-  background: var(--black);
-  color: var(--white);
-}
-
-/* VIDEO — pierwsza połowa sekcji, sticky pod headerem */
-
-.videoStoryMedia {
-  position: sticky;
-  top: var(--header-height);
-
-  width: 100%;
-  height: calc(100svh - var(--header-height));
-
-  overflow: hidden;
-  z-index: 1;
-}
-
-.videoStoryIframe {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  border: 0;
-  pointer-events: none;
-}
-
-/* TEKST — druga połowa sekcji */
-
-.videoStory {
-  position: relative;
-  height: calc(200svh - (2 * var(--header-height)));
-  background: var(--black);
-  color: var(--white);
-}
-
-.videoStoryMedia {
-  position: sticky;
-  top: var(--header-height);
-
-  width: 100%;
-  height: calc(100svh - var(--header-height));
-
-  overflow: hidden;
-  z-index: 1;
-}
-
-.videoStoryIframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 177.78vh;
-  height: 100%;
-
-  min-width: 100%;
-  min-height: 56.25vw;
-
-  transform: translate(-50%, -50%);
-
-  border: 0;
-  pointer-events: none;
-}
-
-.videoStoryText {
-  position: relative;
-  z-index: 2;
-
-  width: var(--rail);
-  height: calc(100svh - var(--header-height));
-
-  margin-inline: auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-}
-
-.videoStoryText .heading {
-  max-width: 10ch;
-  margin: 0;
-}
-
-.videoStoryText .lead {
-  max-width: 38ch;
-  margin-top: 40px;
-}
-
-.videoStoryText .body {
-  max-width: 48ch;
-  margin-top: 26px;
-}
-
-.videoStoryText .button {
-  margin-top: 36px;
-  color: var(--white);
-}
-
-
-
-.imageZoom {
-  overflow: hidden;
-}
-
-.imageZoom img {
-  transform: scale(1.045);
-  transition: transform 2800ms var(--ease);
-  transition-delay: 350ms;
-}
-
-.imageZoomReady img {
-  transform: scale(1);
 }
