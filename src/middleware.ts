@@ -6,14 +6,16 @@ const demoRoutes = [
   "/polityka-prywatnosci/",
   "/regulamin",
   "/regulamin/",
-  "/projekty",
-  "/projekty/",
 ];
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  if (demoRoutes.includes(pathname)) {
+  if (
+    demoRoutes.includes(pathname) ||
+    pathname === "/projekty" ||
+    pathname.startsWith("/projekty/")
+  ) {
     const url = request.nextUrl.clone();
     url.pathname = "/demo";
 
@@ -29,7 +31,6 @@ export const config = {
     "/polityka-prywatnosci/",
     "/regulamin",
     "/regulamin/",
-    "/projekty",
-    "/projekty/",
+    "/projekty/:path*",
   ],
 };
