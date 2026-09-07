@@ -96,87 +96,56 @@ export default function HomePage() {
   return (
     <main className={`${styles.page} debug`}>
       {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroImage}>
-          <img
-            src="/images/beton-house/hero-stairs.webp"
-            alt="Beton House — schody we wnętrzu naszego domu"
-          />
-        </div>
-        <div className={styles.heroShade} />
+<section className={`${styles.hero} ${heroReady ? styles.heroReady : ""}`}>
+  <div className={styles.heroImage}>
+    <img
+      src="/images/beton-house/hero-stairs.webp"
+      alt="Beton House — schody we wnętrzu naszego domu"
+    />
+  </div>
 
-        <div className={`${styles.heroInner} ${heroReady ? styles.heroReady : ""}`}>
-          <div className={styles.heroTop}>
-            <p className={styles.heroMeta}>
-              <PolishText>
-                Pracownia architektoniczna
-                <br />
-                Hania i Seweryn Nogalscy
-                <br />
-                Katowice
-              </PolishText>
-            </p>
-          </div>
+  <div className={styles.heroShade} />
 
-          <div className={styles.heroBottom}>
-            <h1 className={styles.heroTitle}>
-              <span className={styles.heroTitleLine}>
-                <PolishText>Budowane z betonu.</PolishText>
-              </span>
-              <span className={styles.heroTitleLine}>
-                <PolishText>Projektowane z sercem.</PolishText>
-              </span>
-            </h1>
+  <div className={styles.heroInner}>
+    <div className={styles.heroTop}>
+      <p className={styles.heroMeta}>
+        <PolishText>
+          Pracownia architektoniczna
+          <br />
+          Hania i Seweryn Nogalscy
+          <br />
+          Katowice
+        </PolishText>
+      </p>
+    </div>
 
-            <p className={styles.heroAuthors}>
-              <PolishText>
-                Architektura, która zaczyna się
-                <br />
-                od życia, nie od formy.
-              </PolishText>
-            </p>
-          </div>
-        </div>
-      </section>
+    <div className={styles.heroBottom}>
+      <h1 className={styles.heroTitle}>
+        <span className={styles.heroTitleLine}>
+          <PolishText>Budowane z betonu.</PolishText>
+        </span>
 
-      {/* INTRO */}
-      <section
-        id="pracownia"
-        className={`${styles.intro} ${styles.rail} ${styles.reveal}`}
-        data-reveal
+        <span className={styles.heroTitleLine}>
+          <PolishText>Projektowane z sercem.</PolishText>
+        </span>
+      </h1>
+
+      <p
+        className={`${styles.heroAuthors} ${
+          heroReady ? styles.heroAuthorsReady : ""
+        }`}
       >
-        <div className={styles.introGrid}>
-          <div className={styles.introHeading}>
-            <h2 className={styles.heading}>
-              <PolishText>Zaczynamy od człowieka.</PolishText>
-            </h2>
-          </div>
+        <PolishText>
+          Architektura, która zaczyna się
+          <br />
+          od życia, nie od formy.
+        </PolishText>
+      </p>
+    </div>
+  </div>
+</section>
 
-          <div className={styles.introCopy}>
-            <p className={styles.lead}>
-              <PolishText>
-                Projektujemy przestrzenie, które odpowiadają na potrzeby
-                konkretnych ludzi i konkretnych miejsc.
-              </PolishText>
-            </p>
-            <p className={styles.body}>
-              <PolishText>
-                Podążamy za wyobraźnią. Szukamy rozwiązań, które pozwalają nam
-                wyjść poza opatrzone formy — od wnętrz, przez domy, po większe
-                realizacje.
-              </PolishText>
-            </p>
-            <p className={styles.body}>
-              <PolishText>
-                Łączymy artystyczną kreatywność z inżynierskim profesjonalizmem.
-                Dobra architektura musi być dla nas czymś więcej niż obrazem.
-                Musi działać.
-              </PolishText>
-            </p>
-          </div>
-
-        </div>
-      </section>
+     
 
       {/* STICKY STORY — full height image stays, copy travels */}
       <section id="beton-house" className={styles.stickyStory}>
@@ -425,47 +394,49 @@ export default function HomePage() {
       </section>
 
       {/* TVN VIDEO */}
-      <section className={styles.videoStory}>
-        <div className={styles.videoStoryMedia}>
-          <iframe
-            className={styles.videoStoryIframe}
-            src="https://www.youtube.com/embed/JafVo-yxP2I?autoplay=1&mute=1&controls=0&loop=1&playlist=JafVo-yxP2I&cc_load_policy=0&disablekb=1&fs=0&rel=0&playsinline=1"
-            title="Beton House"
-            frameBorder="0"
-            allow="autoplay; encrypted-media"
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
-        </div>
+     <section className={styles.videoStory}>
+  <div className={styles.videoStoryMedia}>
+    <video
+      className={styles.videoStoryIframe}
+      src="/videos/beton-house.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      aria-label="Beton House"
+    />
+  </div>
 
-        <div className={styles.videoStoryText}>
-          <h2 className={styles.heading}>
-            <PolishText>Pokazaliśmy nasz dom.</PolishText>
-          </h2>
+  <div className={styles.videoStoryText}>
+    <h2 className={styles.heading}>
+      <PolishText>Pokazaliśmy nasz dom.</PolishText>
+    </h2>
 
-          <p className={styles.lead}>
-            <PolishText>
-              Omenaa Mensah odwiedziła nas w Beton House w programie
-              „Wyjątkowe domy”.
-            </PolishText>
-          </p>
+    <p className={styles.lead}>
+      <PolishText>
+        Omenaa Mensah odwiedziła nas w Beton House w programie
+        „Wyjątkowe domy”.
+      </PolishText>
+    </p>
 
-          <p className={styles.body}>
-            <PolishText>
-              Mogliśmy opowiedzieć o architekturze, ale też o tym, jak żyjemy
-              w domu, który sami zaprojektowaliśmy.
-            </PolishText>
-          </p>
+    <p className={styles.body}>
+      <PolishText>
+        Mogliśmy opowiedzieć o architekturze, ale też o tym, jak żyjemy
+        w domu, który sami zaprojektowaliśmy.
+      </PolishText>
+    </p>
 
-          <a
-            href="https://player.pl/playerplus/programy-online/wyjatkowe-domy-odcinki,27402/odcinek-2,S01E02,184839"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.button}
-          >
-            <PolishText>Zobacz materiał TVN</PolishText>
-          </a>
-        </div>
-      </section>
+    <a
+      href="https://player.pl/playerplus/programy-online/wyjatkowe-domy-odcinki,27402/odcinek-2,S01E02,184839"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.button}
+    >
+      <PolishText>Zobacz materiał TVN</PolishText>
+    </a>
+  </div>
+</section>
 
       {/* STATEMENT */}
       <section
@@ -493,6 +464,45 @@ export default function HomePage() {
               </PolishText>
             </p>
           </div>
+        </div>
+      </section>
+
+       {/* INTRO */}
+      <section
+        id="pracownia"
+        className={`${styles.intro} ${styles.rail} ${styles.reveal}`}
+        data-reveal
+      >
+        <div className={styles.introGrid}>
+          <div className={styles.introHeading}>
+            <h2 className={styles.heading}>
+              <PolishText>Zaczynamy od człowieka.</PolishText>
+            </h2>
+          </div>
+
+          <div className={styles.introCopy}>
+            <p className={styles.lead}>
+              <PolishText>
+                Projektujemy przestrzenie, które odpowiadają na potrzeby
+                konkretnych ludzi i konkretnych miejsc.
+              </PolishText>
+            </p>
+            <p className={styles.body}>
+              <PolishText>
+                Podążamy za wyobraźnią. Szukamy rozwiązań, które pozwalają nam
+                wyjść poza opatrzone formy — od wnętrz, przez domy, po większe
+                realizacje.
+              </PolishText>
+            </p>
+            <p className={styles.body}>
+              <PolishText>
+                Łączymy artystyczną kreatywność z inżynierskim profesjonalizmem.
+                Dobra architektura musi być dla nas czymś więcej niż obrazem.
+                Musi działać.
+              </PolishText>
+            </p>
+          </div>
+
         </div>
       </section>
 
