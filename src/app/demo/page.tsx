@@ -2,8 +2,8 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 export const metadata = {
-  title: "Beton House — Demo",
-  description: "Podstrona demonstracyjna Beton House.",
+  title: "Demo",
+  description: "Podstrona demonstracyjna.",
 };
 
 export default function DemoPage() {
@@ -11,7 +11,7 @@ export default function DemoPage() {
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <p className={styles.kicker}>Beton House</p>
+          <p className={styles.kicker}></p>
 
           <h1 className={styles.title}>
             Ta część strony

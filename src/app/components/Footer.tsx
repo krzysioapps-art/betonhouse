@@ -6,17 +6,20 @@ export default function Footer() {
       <div className="site-footer__inner">
         <div className="site-footer__grid">
           <div className="site-footer__brand">
-            <a href="/" aria-label="Beton House">
+            <a
+              href="/"
+              aria-label="Studio Forma"
+            >
               <img
                 src="/logo-bw.svg"
-                alt="Beton House"
+                alt="Studio Forma"
                 className="site-footer__logo"
               />
             </a>
 
             <p>
               <PolishText>
-                Hania i Seweryn Nogalscy
+                Studio Forma
                 <br />
                 Pracownia architektoniczna
               </PolishText>
@@ -26,21 +29,22 @@ export default function Footer() {
           <div>
             <p>
               <PolishText>
-                ul. Nagietek 38
+                ul. Przykładowa 12
                 <br />
-                40-748 Katowice
+                40-000 Katowice
               </PolishText>
             </p>
           </div>
 
           <div>
             <p>
-              <a href="tel:+48606856600">+48 606 856 600</a>
+              <a href="tel:+48000000000">
+                +48 000 000 000
+              </a>
               <br />
-              <a href="tel:+48608339199">+48 608 339 199</a>
-              <br />
-              <a href="mailto:biuro@betonhouse.com">
-                biuro@betonhouse.com
+
+              <a href="mailto:kontakt@example.com">
+                kontakt@example.com
               </a>
             </p>
           </div>
@@ -48,36 +52,32 @@ export default function Footer() {
           <div>
             <p>
               <a
-                href="https://www.instagram.com/beton.house/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                aria-label="Instagram"
               >
                 Instagram
               </a>
               <br />
 
               <a
-                href="https://pl-pl.facebook.com/Beton-House-198650000247824/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                aria-label="Facebook"
               >
                 Facebook
               </a>
               <br />
 
               <a
-                href="https://pl.pinterest.com/betonhouse/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                aria-label="Pinterest"
               >
                 Pinterest
               </a>
               <br />
 
               <a
-                href="https://www.youtube.com/user/PentagramSN"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                aria-label="YouTube"
               >
                 YouTube
               </a>
@@ -86,14 +86,21 @@ export default function Footer() {
         </div>
 
         <div className="site-footer__bottom">
-          <span>© 2026 Beton House</span>
+          <span>
+            © 2026 Studio Forma
+          </span>
 
           <nav
             className="site-footer__legal"
             aria-label="Informacje prawne"
           >
-            <a href="/polityka-prywatnosci/">Polityka prywatności</a>
-            <a href="/regulamin/">Regulamin</a>
+            <a href="/polityka-prywatnosci/">
+              Polityka prywatności
+            </a>
+
+            <a href="/regulamin/">
+              Regulamin
+            </a>
           </nav>
         </div>
       </div>

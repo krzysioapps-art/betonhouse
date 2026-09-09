@@ -15,18 +15,32 @@ export default function Header() {
   const isDarkHeader = !isHomePage || isScrolled;
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 12);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 12);
+    };
+
     handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
     document.body.classList.toggle("menu-open", menuOpen);
-    return () => document.body.classList.remove("menu-open");
+
+    return () => {
+      document.body.classList.remove("menu-open");
+    };
   }, [menuOpen]);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   const handleContact = () => {
     closeMenu();
@@ -40,15 +54,35 @@ export default function Header() {
       } ${menuOpen ? styles.headerMenuOpen : ""}`}
     >
       <div className={styles.headerInner}>
-        <a href="/" className={styles.logo} aria-label="Beton House">
-          <img src="/logo-bw.svg" alt="Beton House" />
+        <a
+          href="/"
+          className={styles.logo}
+          aria-label="Studio Forma"
+        >
+          <img
+            src="/logo-bw.svg"
+            alt="Studio Forma"
+          />
         </a>
 
-        <nav className={styles.nav} aria-label="Główna nawigacja">
+        <nav
+          className={styles.nav}
+          aria-label="Główna nawigacja"
+        >
           <a href="#pracownia">O nas</a>
-          <a href="#beton-house">Beton House</a>
-          <a href="#projekty">Projekty</a>
-          <button type="button" onClick={handleContact}>
+
+          <a href="#dom-monolityczny">
+            Dom Monolityczny
+          </a>
+
+          <a href="#projekty">
+            Projekty
+          </a>
+
+          <button
+            type="button"
+            onClick={handleContact}
+          >
             Kontakt
           </button>
         </nav>
@@ -63,23 +97,60 @@ export default function Header() {
 
         <button
           type="button"
-          className={`${styles.menuButton} ${menuOpen ? styles.menuButtonOpen : ""}`}
+          className={`${styles.menuButton} ${
+            menuOpen ? styles.menuButtonOpen : ""
+          }`}
           onClick={() => setMenuOpen((open) => !open)}
-          aria-label={menuOpen ? "Zamknij menu" : "Otwórz menu"}
+          aria-label={
+            menuOpen
+              ? "Zamknij menu"
+              : "Otwórz menu"
+          }
           aria-expanded={menuOpen}
         >
           <span />
           <span />
         </button>
 
-        <div className={styles.mobileMenu} aria-hidden={!menuOpen}>
+        <div
+          className={styles.mobileMenu}
+          aria-hidden={!menuOpen}
+        >
           <nav aria-label="Menu mobilne">
-            <a href="#pracownia" onClick={closeMenu}>O nas</a>
-            <a href="#beton-house" onClick={closeMenu}>Beton House</a>
-            <a href="#projekty" onClick={closeMenu}>Projekty</a>
-            <button type="button" onClick={handleContact}>Kontakt</button>
+            <a
+              href="#pracownia"
+              onClick={closeMenu}
+            >
+              O nas
+            </a>
+
+            <a
+              href="#dom-monolityczny"
+              onClick={closeMenu}
+            >
+              Dom Monolityczny
+            </a>
+
+            <a
+              href="#projekty"
+              onClick={closeMenu}
+            >
+              Projekty
+            </a>
+
+            <button
+              type="button"
+              onClick={handleContact}
+            >
+              Kontakt
+            </button>
           </nav>
-          <button type="button" className={styles.mobileCta} onClick={handleContact}>
+
+          <button
+            type="button"
+            className={styles.mobileCta}
+            onClick={handleContact}
+          >
             Rozpocznij współpracę
           </button>
         </div>

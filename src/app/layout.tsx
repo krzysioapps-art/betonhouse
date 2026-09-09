@@ -5,23 +5,24 @@ import Footer from "./components/Footer";
 import { ContactProvider } from "./components/ContactContext";
 
 export const metadata: Metadata = {
-  title: "Beton House",
+  title: "Studio Forma",
   description:
-    "Beton House — pracownia architektoniczna Hani i Seweryna Nogalskich.",
-  metadataBase: new URL("https://betonhouse.com"),
+    "Studio Forma — pracownia architektoniczna zajmująca się projektowaniem przestrzeni mieszkalnych i użytkowych.",
+  metadataBase: new URL("https://example.com"),
   openGraph: {
-    title: "Beton House",
-    description: "Pracownia architektoniczna Hani i Seweryna Nogalskich.",
-    url: "https://betonhouse.com",
-    siteName: "Beton House",
+    title: "Studio Forma",
+    description:
+      "Studio Forma — pracownia architektoniczna zajmująca się projektowaniem przestrzeni mieszkalnych i użytkowych.",
+    url: "https://example.com",
+    siteName: "Studio Forma",
     locale: "pl_PL",
     type: "website",
     images: [
       {
-        url: "/images/beton-house/exterior.png",
+        url: "/images/beton-house/exterior.webp",
         width: 1600,
         height: 1000,
-        alt: "Beton House",
+        alt: "Dom Monolityczny",
       },
     ],
   },

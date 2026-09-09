@@ -1,3 +1,4 @@
+
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
@@ -36,11 +37,13 @@ export default function ContactPanel({
     };
   }, [open, onClose]);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (
+    event: FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
 
     const subject = encodeURIComponent(
-      `Kontakt ze strony Beton House — ${name}`
+      `Kontakt ze strony Studio Forma — ${name}`
     );
 
     const body = encodeURIComponent(
@@ -51,26 +54,32 @@ export default function ContactPanel({
     );
 
     window.location.href =
-      `mailto:biuro@betonhouse.com?subject=${subject}&body=${body}`;
+      `mailto:kontakt@example.com?subject=${subject}&body=${body}`;
   };
 
   return (
     <>
       <div
-        className={`${styles.overlay} ${open ? styles.overlayOpen : ""}`}
+        className={`${styles.overlay} ${
+          open ? styles.overlayOpen : ""
+        }`}
         onClick={onClose}
         aria-hidden={!open}
       />
 
       <aside
-        className={`${styles.panel} ${open ? styles.panelOpen : ""}`}
+        className={`${styles.panel} ${
+          open ? styles.panelOpen : ""
+        }`}
         aria-hidden={!open}
         aria-label="Formularz kontaktowy"
       >
         <div className={styles.inner}>
           <div className={styles.top}>
             <span className={styles.title}>
-              <PolishText>Porozmawiajmy.</PolishText>
+              <PolishText>
+                Porozmawiajmy.
+              </PolishText>
             </span>
 
             <button
@@ -87,22 +96,30 @@ export default function ContactPanel({
           <div className={styles.content}>
             <p className={styles.intro}>
               <PolishText>
-                Opowiedzcie nam o swoim miejscu, pomyśle albo planach.
-                Odezwiemy się, żeby porozmawiać o możliwościach.
+                Opowiedzcie nam o swoim miejscu, pomyśle
+                albo planach. Odezwiemy się, żeby
+                porozmawiać o możliwościach.
               </PolishText>
             </p>
 
-            <form className={styles.form} onSubmit={handleSubmit}>
+            <form
+              className={styles.form}
+              onSubmit={handleSubmit}
+            >
               <label className={styles.field}>
                 <span>
-                  <PolishText>Imię i nazwisko</PolishText>
+                  <PolishText>
+                    Imię i nazwisko
+                  </PolishText>
                 </span>
 
                 <input
                   type="text"
                   name="name"
                   value={name}
-                  onChange={(event) => setName(event.target.value)}
+                  onChange={(event) =>
+                    setName(event.target.value)
+                  }
                   autoComplete="name"
                   required
                 />
@@ -110,14 +127,18 @@ export default function ContactPanel({
 
               <label className={styles.field}>
                 <span>
-                  <PolishText>E-mail</PolishText>
+                  <PolishText>
+                    E-mail
+                  </PolishText>
                 </span>
 
                 <input
                   type="email"
                   name="email"
                   value={email}
-                  onChange={(event) => setEmail(event.target.value)}
+                  onChange={(event) =>
+                    setEmail(event.target.value)
+                  }
                   autoComplete="email"
                   required
                 />
@@ -125,34 +146,47 @@ export default function ContactPanel({
 
               <label className={styles.field}>
                 <span>
-                  <PolishText>Telefon</PolishText>
+                  <PolishText>
+                    Telefon
+                  </PolishText>
                 </span>
 
                 <input
                   type="tel"
                   name="phone"
                   value={phone}
-                  onChange={(event) => setPhone(event.target.value)}
+                  onChange={(event) =>
+                    setPhone(event.target.value)
+                  }
                   autoComplete="tel"
                 />
               </label>
 
               <label className={styles.field}>
                 <span>
-                  <PolishText>Wiadomość</PolishText>
+                  <PolishText>
+                    Wiadomość
+                  </PolishText>
                 </span>
 
                 <textarea
                   name="message"
                   value={message}
-                  onChange={(event) => setMessage(event.target.value)}
+                  onChange={(event) =>
+                    setMessage(event.target.value)
+                  }
                   rows={5}
                   required
                 />
               </label>
 
-              <button type="submit" className={styles.submit}>
-                <PolishText>Wyślij wiadomość</PolishText>
+              <button
+                type="submit"
+                className={styles.submit}
+              >
+                <PolishText>
+                  Wyślij wiadomość
+                </PolishText>
               </button>
             </form>
 
@@ -163,23 +197,19 @@ export default function ContactPanel({
             </div>
 
             <div className={styles.contactDetails}>
-              <a href="mailto:biuro@betonhouse.com">
-                biuro@betonhouse.com
+              <a href="mailto:kontakt@example.com">
+                kontakt@example.com
               </a>
 
-              <a href="tel:+48606856600">
-                +48 606 856 600
-              </a>
-
-              <a href="tel:+48608339199">
-                +48 608 339 199
+              <a href="tel:+48000000000">
+                +48 000 000 000
               </a>
 
               <p>
                 <PolishText>
-                  ul. Nagietek 38
+                  ul. Przykładowa 12
                   <br />
-                  40-748 Katowice
+                  40-000 Katowice
                 </PolishText>
               </p>
             </div>

@@ -240,8 +240,8 @@
 
 .stickyVisual {
   position: sticky;
-  top: 0;
-  height: 100svh;
+  top: var(--header-height);
+  height: calc(100svh - var(--header-height));
   overflow: hidden;
 }
 
